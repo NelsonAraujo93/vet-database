@@ -1,5 +1,14 @@
-/* Database schema to keep the structure of entire database. */
+/* Create Database */
+
+CREATE DATABASE vet_clinic;
+
+/* Create Table Animals */
 
 CREATE TABLE animals (
-    name varchar(100)
+  id int,
+  name varchar(50),
+  date_of_birth date,
+	scape_attemps int,
+	neutered bool,
+	weight_kg decimal
 );
