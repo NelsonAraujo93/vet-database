@@ -8,7 +8,7 @@ CREATE TABLE animals (
   id int,
   name varchar(50),
   date_of_birth date,
-	scape_attemps int,
+	escape_attemps int,
 	neutered bool,
 	weight_kg decimal
 );
