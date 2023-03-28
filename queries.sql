@@ -31,9 +31,13 @@ UPDATE animals
 set species = 'digimon'
 where name like '%mon';
 
+SELECT * from animals;
+
 UPDATE animals
 set species = 'digimon'
 where especies is null;
+
+SELECT * from animals;
 
 commit;
 
@@ -43,6 +47,8 @@ Begin;
 
 DELETE from animals;
 
+SELECT * from animals;
+
 Rollback;
 
 /* Update insde transaction with savepoint, rollback and commit*/
@@ -51,16 +57,24 @@ Begin;
 Delete from animals
 where date_of_birth > '2022-01-01';
 
+SELECT * from animals;
+
 savepoint SP1;
 
 UPDATE animals
 set weight_kg = weight_kg * -1;
 
+SELECT * from animals;
+
 Rollback to SP1;
+
+SELECT * from animals;
 
 UPDATE animals
 set weight_kg = weight_kg * -1
 where weight_kg < 0;
+
+SELECT * from animals;
 
 commit;
 
