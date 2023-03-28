@@ -29,7 +29,7 @@ Begin;
 
 UPDATE animals
 set species = 'digimon'
-where name like '%mon%';
+where name like '%mon';
 
 UPDATE animals
 set species = 'digimon'
@@ -45,11 +45,11 @@ DELETE from animals;
 
 Rollback;
 
-/*Update insde transaction with savepoint, rollback and commit*/
+/* Update insde transaction with savepoint, rollback and commit*/
 Begin;
 
 Delete from animals
-where date_of_birth >= '2022-01-01';
+where date_of_birth > '2022-01-01';
 
 savepoint SP1;
 
