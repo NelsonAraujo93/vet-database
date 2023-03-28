@@ -33,9 +33,8 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 # 📖 [Vet_Clinic] <a name="about-project"></a>
 
-This project is created to practice and test our knowledge in SQL and to learn best practices of it.
-
-**[Vet_Clinic]** is a SQL database project focused on practice and learn SQL basics.
+This project is created and focused to practice and test our knowledge in SQL and to learn best practices of it.
+**[Vet_Clinic]**
 
 ## 🛠 Built With <a name="built-with"></a>
 
