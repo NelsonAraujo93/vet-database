@@ -1,4 +1,4 @@
-/* Populate database with sample data. */
+/* Populate animals table with sample data. */
 
 INSERT INTO animals (name, date_of_birth, escape_attemps, neutered, weight_kg) VALUES ('Agumon', '2020-02-03',0,true,10.23);
 INSERT INTO animals (name, date_of_birth, escape_attemps, neutered, weight_kg) VALUES ('Gabumon', '2018-11-15',2,true,8);
@@ -13,3 +13,47 @@ INSERT INTO animals (name, date_of_birth, escape_attemps, neutered, weight_kg) V
 INSERT INTO animals (name, date_of_birth, escape_attemps, neutered, weight_kg) VALUES ('Boarmon', '2005-06-07',7,true,20.4);
 INSERT INTO animals (name, date_of_birth, escape_attemps, neutered, weight_kg) VALUES ('Blossom', '1998-10-13',3,true,17);
 INSERT INTO animals (name, date_of_birth, escape_attemps, neutered, weight_kg) VALUES ('Ditto', '2022-05-14',4,false,22);
+
+/* Populate owners table with sample data. */
+
+INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34);
+INSERT INTO owners (full_name, age) VALUES ('Jennifer Orwell', 19);
+INSERT INTO owners (full_name, age) VALUES ('Bob', 45);
+INSERT INTO owners (full_name, age) VALUES ('Melody Pond', 77);
+INSERT INTO owners (full_name, age) VALUES ('Dean Winchester', 14);
+INSERT INTO owners (full_name, age) VALUES ('Jodie Whittaker', 38);
+
+/* Populate species table with sample data. */
+
+INSERT INTO species (name) VALUES ('Pokemon');
+INSERT INTO species (name) VALUES ('Digimon');
+
+/* Update animals especies_id*/
+
+UPDATE animals
+set species_id = 2
+where species_id like '%mon';
+
+UPDATE animals
+set species_id = 1
+where species_id is null;
+
+UPDATE animals
+set owner_id = 1
+where name = 'Agumon';
+
+UPDATE animals
+set owner_id = 2
+where name = 'Gabumon' or  name = 'Pikachu';
+
+UPDATE animals
+set owner_id = 3
+where name = 'Devimon' or  name = 'Plantmon';
+
+UPDATE animals
+set owner_id = 4
+where name = 'Charmander' or  name = 'Squirtle' or  name = 'Blossom';
+
+UPDATE animals
+set owner_id = 5
+where name = 'Angemon' or  name = 'Boarmon';

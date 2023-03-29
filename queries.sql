@@ -1,6 +1,6 @@
 /* Queries based on project requirements */
 
-SELECT * from animals WHERE name LIKE '%mon%';
+SELECT * from animals WHERE name LIKE '%mon';
 
 SELECT name from animals WHERE date_of_birth BETWEEN '2016-01-01' AND '2019-12-31';
 
@@ -29,13 +29,13 @@ Begin;
 
 UPDATE animals
 set species = 'digimon'
-where name like '%mon';
+WHERE name like '%mon';
 
 SELECT * from animals;
 
 UPDATE animals
 set species = 'digimon'
-where especies is null;
+WHERE especies is null;
 
 SELECT * from animals;
 
@@ -55,7 +55,7 @@ Rollback;
 Begin;
 
 Delete from animals
-where date_of_birth > '2022-01-01';
+WHERE date_of_birth > '2022-01-01';
 
 SELECT * from animals;
 
@@ -72,7 +72,7 @@ SELECT * from animals;
 
 UPDATE animals
 set weight_kg = weight_kg * -1
-where weight_kg < 0;
+WHERE weight_kg < 0;
 
 SELECT * from animals;
 
@@ -84,7 +84,7 @@ commit;
 SELECT COUNT(*) FROM animals;
 
 SELECT COUNT(*) FROM animals
-where escape_attemps = 0;
+WHERE escape_attemps = 0;
 
 SELECT avg(weight_kg) FROM animals;
 
@@ -95,5 +95,45 @@ SELECT  species, max(weight_kg), min(weight_kg) FROM animals
 GROUP BY species;
 
 SELECT  species, avg(escape_attemps) FROM animals
-where date_of_birth between '1990-01-01' and '2000-12-31'
+WHERE date_of_birth between '1990-01-01' and '2000-12-31'
 GROUP BY species;
+
+
+/*  JOIN queries */
+
+SELECT O.full_name as owner_name, A.name as animal_name
+FROM owners O
+JOIN animals A ON A.owner_id = O.id
+WHERE O.full_name = 'Melody Pond';
+
+SELECT S.name as type, A.name as animal_name
+FROM species S
+JOIN animals A ON A.species_id = S.id
+WHERE S.name = 'Pokemon';
+
+SELECT O.full_name as owner_name, A.name as animal_name
+FROM owners O
+FULL JOIN animals A ON A.owner_id = O.id;
+
+SELECT S.name, COUNT(A.*) 
+FROM species S
+JOIN animals A ON A.species_id = S.id
+Group by S.name;
+
+SELECT O.full_name as owner_name, A.name as animal_name
+FROM owners O
+JOIN animals A ON A.owner_id = O.id
+WHERE O.full_name = 'Jennifer Orwell'
+AND A.species_id = 2;
+
+SELECT O.full_name as owner_name, A.name as animal_name
+FROM owners O
+JOIN animals A ON A.owner_id = O.id
+where O.full_name = 'Dean Winchester'
+AND A.escape_attemps = 0;
+
+SELECT O.full_name as owner_name, COUNT(A.*) as animal_quantity
+FROM owners O
+FULL JOIN animals A ON A.owner_id = O.id
+GROUP BY owner_name
+ORDER BY animal_quantity DESC;
