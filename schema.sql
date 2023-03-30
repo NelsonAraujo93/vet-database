@@ -53,3 +53,33 @@ add owner_id int;
 
 ALTER TABLE animals
 ADD FOREIGN KEY (owner_id) REFERENCES owners (id);
+
+/* Create TABLE vets */
+
+CREATE TABLE vets (
+  id SERIAL PRIMARY KEY,
+  name varchar(50),
+  age int,
+  date_of_graduation date
+);
+
+/* Create TABLE specializations */
+
+CREATE TABLE specializations (
+  vets_id int,
+  species_id int,
+  CONSTRAINT fk_vets FOREIGN KEY (vets_id) REFERENCES vets (id),
+  CONSTRAINT fk_species FOREIGN KEY (species_id) REFERENCES species (id),
+  PRIMARY KEY (vets_id, species_id)
+);
+
+/* Create TABLE visits */
+
+CREATE TABLE visits (
+  vets_id int,
+  animals_id int,
+  date_of_visit date,
+  CONSTRAINT fk_vets FOREIGN KEY (vets_id) REFERENCES vets (id),
+  CONSTRAINT fk_animals FOREIGN KEY (animals_id) REFERENCES animals (id),
+  PRIMARY KEY (vets_id, animals_id, date_of_visit)
+);
