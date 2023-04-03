@@ -97,3 +97,11 @@ INSERT INTO visits (vets_id, animals_id, date_of_visit) VALUES (2, 4, '2020-02-2
 INSERT INTO visits (vets_id, animals_id, date_of_visit) VALUES (2, 4, '2020-08-03');
 INSERT INTO visits (vets_id, animals_id, date_of_visit) VALUES (3, 6, '2020-05-24');
 INSERT INTO visits (vets_id, animals_id, date_of_visit) VALUES (1, 6, '2021-01-11');
+
+
+/* Add 3.594.280 data to visits*/
+INSERT INTO visits (animals_id, vets_id, date_of_visit) SELECT * FROM (SELECT id FROM animals) animal_ids, (SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+
+
+/* Add 2.500.000 rows into owners*/
+insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
