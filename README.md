@@ -87,6 +87,12 @@ Run the scripts in schema.sql in your PostgresSQL command console.
 - GitHub: [@NelsonAraujo93](https://github.com/NelsonAraujo93)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/nelson-araujo-paredes/)
 
+👤 David Isea
+
+- GitHub: [@AlucardSanin](https://github.com/AlucardSanin)
+
+- LinkedIn: [David Isea](https://www.linkedin.com/in/davidisea/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
